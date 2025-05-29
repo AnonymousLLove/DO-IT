@@ -39,6 +39,7 @@ dependencies:
   local_auth: ^2.3.0
   image_picker: ^1.1.2
   flutter_native_splash: ^2.4.0
+  flutter_launcher_icons: ^0.14.3
   
 
 dev_dependencies:
@@ -114,3 +115,9 @@ flutter_native_splash:
     color: "#000000"
     # image_dark: assets/images/zenkonect_logo_dark.png
     # color_dark: "#1a1a1a"
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png" 
