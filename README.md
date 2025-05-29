@@ -1,16 +1,56 @@
-# do_it
 
-A new Flutter project.
+# 📊 DO-IT
 
-## Getting Started
+A clean and modern Flutter mobile app for managing **projects** and **tasks**, following the **MVC (Model-View-Controller)** architecture.
 
-This project is a starting point for a Flutter application.
+<p align="center">
+  <img src="assets/demo/welcome.png" width="200">
+  <img src="assets/demo/dashboard.png" width="200">
+  <img src="assets/demo/createproject.png" width="200">
+  <img src="assets/demo/fp.png" width="200">
+</p>
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Some Features
+
+- 📂 **Create Projects** with name, start/end dates, tags, team members, and description.
+- 📋 **View Projects** in a clean card-based UI with duration indicators and quick action buttons.
+- ✅ **Add Tasks** under projects, assign members, and track progress with circular indicators.
+- **Biometric Authentication** to log in to the app.
+- 👥 Beautiful avatars for team collaboration.
+- 🧭 Simple and intuitive **bottom navigation**.
+
+
+---
+
+## 🧠 Architecture
+
+This project uses the **MVC architecture**:
+
+```
+
+lib/
+├── models/        # Data classes 
+├── views/         # UI screens
+├── controllers/   # Business logic
+├── widgets/       # Reusable components
+└── main.dart      # Entry point
+
+````
+
+---
+
+## 🖼 Screenshots
+
+
+| Task | Projects | Create Account | Authentication | Sign In |
+|------|----------|----------------|----------------|---------|
+| ![Task](assets/demo/task.png) | ![Projects](assets/demo/projects.png) | ![Create Project](assets/demo/sign.png) | ![Authentication](assets/demo/authentication.png) | ![Sign In](assets/demo/log.png) |
+
+
+
+
+````
+
+
