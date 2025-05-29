@@ -1,5 +1,6 @@
 import 'package:do_it/config/constants.dart';
 import 'package:do_it/controllers/project_controller.dart';
+import 'package:do_it/routes/app_routes.dart';
 import 'package:do_it/views/widgets/bottom_nav.dart';
 import 'package:do_it/views/widgets/project_card.dart';
 import 'package:flutter/material.dart';
@@ -57,24 +58,27 @@ class ProjectsView extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.white,
-                      border: Border.all(
-                        color: color, // border color
-                        // border thickness
+                  GestureDetector(
+                    onTap: (){ Navigator.pushNamed(context, AppRoutes.createProject);},
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: color, // border color
+                          // border thickness
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      "Create Project",
-                      style: TextStyle(
-                        fontFamily: font,
-                        color:
-                            color, // assuming you want white text on colored bg
-                        fontSize: 9,
-                        fontWeight: FontWeight.w500,
+                      child: Text(
+                        "Create Project",
+                        style: TextStyle(
+                          fontFamily: font,
+                          color:
+                              color, // assuming you want white text on colored bg
+                          fontSize: 9,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),

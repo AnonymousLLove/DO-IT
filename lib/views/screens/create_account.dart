@@ -26,175 +26,183 @@ class _CreateAccountViewState extends State<CreateAccountView> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 6,
-                        offset: Offset(0, 4),
-                      ),
-                    ],
-                  ),
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_back_ios),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ),
-                SizedBox(height: screenHeight * 0.02),
-                Text(
-                  'Create\nAccount',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 10),
-                Text.rich(
-                  TextSpan(
-                    text: 'Please fill the details below to\ncreate a ',
-                    style: TextStyle(color: Colors.black), // Default text style
-                    children: [
-                      TextSpan(
-                        text: 'DO-IT',
-                        style: TextStyle(
-                          color: color, // Change to your desired color
-                        ),
-                      ),
-                      TextSpan(text: ' account'),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 30),
-                Form(
-                  key: _formKey,
+          child: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildTextField(
-                        "Name",
-                        controller.nameController,
-                        Icons.email,
-                        isEmail: false,
-                      ),
-
-                      _buildTextField(
-                        "Email",
-                        controller.emailController,
-                        Icons.email,
-                        isEmail: true,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: screenHeight * 0.015),
-                        child: Theme(
-                          data: Theme.of(context).copyWith(
-                            inputDecorationTheme: InputDecorationTheme(
-                              floatingLabelStyle: TextStyle(
-                                color: color,
-                              ), // Focused label color
-                              labelStyle: TextStyle(
-                                fontFamily: font,
-                                color: Color.fromRGBO(100, 100, 100, 1),
-                              ),
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 6,
+                              offset: Offset(0, 4),
                             ),
-                          ),
-                          child: IntlPhoneField(
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              contentPadding: const EdgeInsets.symmetric(
-                                vertical: 19.0,
-                                horizontal: 16.0,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(100, 100, 100, 1),
-                                ),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(
-                                  color: Color.fromRGBO(100, 100, 100, 1),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(color: color),
-                              ),
-
-                              labelText: "Mobile Number",
-                            ),
-
-                            style: TextStyle(
-                              color:
-                                  Theme.of(context).brightness ==
-                                      Brightness.dark
-                                  ? Colors.white
-                                  : Colors.black,
-                            ),
-                            initialCountryCode: 'NG',
-                            validator: (phoneNumber) {
-                              if (phoneNumber == null ||
-                                  phoneNumber.number.isEmpty) {
-                                return 'Mobile Number cannot be empty';
-                              }
-                              return null;
-                            },
-                            onChanged: (phone) {
-                              fullPhoneNumber = phone.completeNumber;
-                            },
-                            onCountryChanged: (country) {
-                              //  print('Country changed to: ' + country.name);
-                            },
-                          ),
+                          ],
+                        ),
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_back_ios),
+                          onPressed: () => Navigator.pop(context),
                         ),
                       ),
-
-                      _buildTextField(
-                        "Password",
-                        controller.passwordController,
-                        Icons.lock,
-                        isPassword: true,
+                      SizedBox(height: screenHeight * 0.02),
+                      Text(
+                        'Create\nAccount',
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                       ),
+                      SizedBox(height: 10),
+                      Text.rich(
+                        TextSpan(
+                          text: 'Please fill the details below to\ncreate a ',
+                          style: TextStyle(color: Colors.black), // Default text style
+                          children: [
+                            TextSpan(
+                              text: 'DO-IT',
+                              style: TextStyle(
+                                color: color, // Change to your desired color
+                              ),
+                            ),
+                            TextSpan(text: ' account'),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            _buildTextField(
+                              "Name",
+                              controller.nameController,
+                              Icons.email,
+                              isEmail: false,
+                            ),
+                                
+                            _buildTextField(
+                              "Email",
+                              controller.emailController,
+                              Icons.email,
+                              isEmail: true,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: screenHeight * 0.015),
+                              child: Theme(
+                                data: Theme.of(context).copyWith(
+                                  inputDecorationTheme: InputDecorationTheme(
+                                    floatingLabelStyle: TextStyle(
+                                      color: color,
+                                    ), // Focused label color
+                                    labelStyle: TextStyle(
+                                      fontFamily: font,
+                                      color: Color.fromRGBO(100, 100, 100, 1),
+                                    ),
+                                  ),
+                                ),
+                                child: IntlPhoneField(
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 19.0,
+                                      horizontal: 16.0,
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      borderSide: BorderSide(
+                                        color: Color.fromRGBO(100, 100, 100, 1),
+                                      ),
+                                    ),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      borderSide: BorderSide(
+                                        color: Color.fromRGBO(100, 100, 100, 1),
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                      borderSide: BorderSide(color: color),
+                                    ),
+                                
+                                    labelText: "Mobile Number",
+                                  ),
+                                
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? Colors.white
+                                        : Colors.black,
+                                  ),
+                                  initialCountryCode: 'NG',
+                                  validator: (phoneNumber) {
+                                    if (phoneNumber == null ||
+                                        phoneNumber.number.isEmpty) {
+                                      return 'Mobile Number cannot be empty';
+                                    }
+                                    return null;
+                                  },
+                                  onChanged: (phone) {
+                                    fullPhoneNumber = phone.completeNumber;
+                                  },
+                                  onCountryChanged: (country) {
+                                    //  print('Country changed to: ' + country.name);
+                                  },
+                                ),
+                              ),
+                            ),
+                                
+                            _buildTextField(
+                              "Password",
+                              controller.passwordController,
+                              Icons.lock,
+                              isPassword: true,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: screenHeight * 0.06),
+
                     ],
                   ),
                 ),
-                SizedBox(height: screenHeight * 0.06),
-                CustomButton(
-                  text: 'Create account',
-                  onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
-                      controller.createAccount(context);
-                    }
-                  },
-                ),
-
-                Center(
-                  child: TextButton(
-                    onPressed: () {},
-
-                    child: Text(
-                      "Privacy policy",
-                      style: TextStyle(
-                        fontSize: 12,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Color.fromRGBO(196, 196, 196, 1),
-                        color: Color.fromRGBO(196, 196, 196, 1),
+              ),
+                                    CustomButton(
+                        text: 'Create account',
+                        onPressed: () {
+                          if (_formKey.currentState?.validate() ?? false) {
+                            controller.createAccount(context);
+                          }
+                        },
                       ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+                                
+                      Center(
+                        child: TextButton(
+                          onPressed: () {},
+                                
+                          child: Text(
+                            "Privacy policy",
+                            style: TextStyle(
+                              fontSize: 12,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Color.fromRGBO(196, 196, 196, 1),
+                              color: Color.fromRGBO(196, 196, 196, 1),
+                            ),
+                          ),
+                        ),
+                      ),
+            ],
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:do_it/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatelessWidget {
@@ -12,7 +13,8 @@ class BottomNav extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Image.asset("assets/images/home.png"),
+          GestureDetector( onTap: (){ Navigator.pushNamed(context, AppRoutes.dashboard);},
+            child: Image.asset("assets/images/home.png")),
           Image.asset("assets/images/mark.png"),
           Image.asset("assets/images/profile.png"),
         ],

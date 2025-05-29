@@ -37,7 +37,7 @@ class WelcomeScreen extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: 'DO-',
+                          text: 'DO',
                           style: TextStyle(
                             fontSize: 33,
                             fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
                           ),
                         ),
                         TextSpan(
-                          text: 'IT',
+                          text: '-IT',
                           style: TextStyle(
                             fontFamily: font,
                             fontSize: 33,

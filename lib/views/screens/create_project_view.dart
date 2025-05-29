@@ -46,8 +46,14 @@ class _CreateProjectViewState extends State<CreateProjectView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
            GestureDetector(
-             onTap: () {
-               Navigator.pop(context);
+            
+onTap: () {
+  FocusScope.of(context).unfocus(); // hide keyboard
+  Future.delayed(const Duration(milliseconds: 100), () {
+    if (mounted) Navigator.pop(context); // wait for keyboard to close
+  });
+
+
              },
              child: Container(
                width: 40,
@@ -88,7 +94,7 @@ class _CreateProjectViewState extends State<CreateProjectView> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-                SizedBox(height: screenHeight * 0.05),
+                SizedBox(height: screenHeight * 0.02),
            Row(
   crossAxisAlignment: CrossAxisAlignment.start,
   children: [
@@ -129,7 +135,7 @@ class _CreateProjectViewState extends State<CreateProjectView> {
 ),
 
              
-          SizedBox(height: screenHeight * 0.09),
+          SizedBox(height: screenHeight * 0.03),
 
        Row(
   children: [
@@ -177,7 +183,7 @@ class _CreateProjectViewState extends State<CreateProjectView> {
 )
  ,
             
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
             InputDecorator(
         
        decoration: const InputDecoration(

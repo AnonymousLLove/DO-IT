@@ -27,6 +27,7 @@ class _CreateTaskViewState extends State<CreateTaskView> {
   Widget build(BuildContext context) {
        final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+     // resizeToAvoidBottomInset: false,
    backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -36,7 +37,11 @@ class _CreateTaskViewState extends State<CreateTaskView> {
             children: [
            GestureDetector(
              onTap: () {
-               Navigator.pop(context);
+              FocusScope.of(context).unfocus(); 
+  Future.delayed(const Duration(milliseconds: 200), () {
+    if (mounted) Navigator.pop(context); // wait for keyboard to close
+  });
+
              },
              child: Container(
                width: 40,
@@ -77,7 +82,7 @@ class _CreateTaskViewState extends State<CreateTaskView> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-                SizedBox(height: screenHeight * 0.05),
+                SizedBox(height: screenHeight * 0.02),
            Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -98,7 +103,7 @@ class _CreateTaskViewState extends State<CreateTaskView> {
                  ),
 
              
-          SizedBox(height: screenHeight * 0.09),
+          SizedBox(height: screenHeight * 0.02),
 
        Row(
   children: [
@@ -146,7 +151,7 @@ class _CreateTaskViewState extends State<CreateTaskView> {
 )
  ,
             
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
             InputDecorator(
         
        decoration: const InputDecoration(
@@ -171,7 +176,7 @@ class _CreateTaskViewState extends State<CreateTaskView> {
 
 
 
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
                  InputDecorator(
         
        decoration: const InputDecoration(
@@ -194,7 +199,7 @@ TagsFieldWithPopup(
   },
 ),),
 
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
               Text(
                 "Description:",
                 style: TextStyle(

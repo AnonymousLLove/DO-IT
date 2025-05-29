@@ -26,206 +26,214 @@ class _SignInViewState extends State<SignInView> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 6,
-                      offset: Offset(0, 4),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 6,
+                            offset: Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_back_ios, size: 20),
+                          onPressed: () => Navigator.pop(context),
+                        ),
+                      ),
                     ),
-                  ],
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_back_ios, size: 20),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                ),
-              ),
-
-              SizedBox(height: screenHeight * 0.1),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 30,
-                    height: 30,
-                    child: Image.asset(
-                      'assets/images/logo.png',
-                      fit: BoxFit
-                          .contain, // Adjusts the image to fit inside the container
-                    ),
-                  ),
-                  SizedBox(width: 20),
-                  Text.rich(
-                    TextSpan(
+                
+                    SizedBox(height: screenHeight * 0.1),
+                
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextSpan(
-                          text: 'DO-',
-                          style: TextStyle(
-                            fontSize: 33,
-                            fontWeight: FontWeight.bold,
-                            color: color,
-                            fontFamily: font,
+                        SizedBox(
+                          width: 30,
+                          height: 30,
+                          child: Image.asset(
+                            'assets/images/logo.png',
+                            fit: BoxFit
+                                .contain, // Adjusts the image to fit inside the container
                           ),
                         ),
-                        TextSpan(
-                          text: 'IT',
-                          style: TextStyle(
-                            fontFamily: font,
-                            fontSize: 33,
-                            fontWeight: FontWeight.bold,
-                            color: color,
-                            decoration: TextDecoration.underline,
-                            decorationColor: color,
+                        SizedBox(width: 20),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'DO-',
+                                style: TextStyle(
+                                  fontSize: 33,
+                                  fontWeight: FontWeight.bold,
+                                  color: color,
+                                  fontFamily: font,
+                                ),
+                              ),
+                              TextSpan(
+                                text: 'IT',
+                                style: TextStyle(
+                                  fontFamily: font,
+                                  fontSize: 33,
+                                  fontWeight: FontWeight.bold,
+                                  color: color,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: color,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              Center(
-                child: Text(
-                  'Welcome Back !',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: font,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.04),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    _buildTextField(
-                      "Email",
-                      controller.emailController,
-                      Icons.email,
-                      isEmail: true,
-                    ),
-                    _buildTextField(
-                      "Password",
-                      controller.passwordController,
-                      Icons.lock,
-                      isPassword: true,
-                    ),
-                  ],
-                ),
-              ),
-
-              Text(
-                "Forgot Password?",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Color.fromRGBO(129, 129, 129, 1),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.08),
-              Row(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      if (_formKey.currentState?.validate() ?? false) {
-                        Navigator.pushNamed(context, AppRoutes.dashboard);
-                      }
-                    },
-                    child: Container(
-                      width:
-                          screenWidth *
-                          0.65, // makes container fill parent width
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 16,
-                      ), // vertical padding for height
-                      decoration: BoxDecoration(
-                        color: color,
-                        borderRadius: BorderRadius.circular(
-                          10,
-                        ), // rounded edges
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 6,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      alignment: Alignment.center,
+                    SizedBox(height: screenHeight * 0.02),
+                    Center(
                       child: Text(
-                        "Sign In",
+                        'Welcome Back !',
                         style: TextStyle(
-                          color: Colors
-                              .white, // assuming you want white text on colored bg
-                          fontSize: 18,
+                          fontSize: 24,
+                          fontFamily: font,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: screenWidth * 0.04),
-                  GestureDetector(
-                    onTap:(){authenticate(context);},
-                    child: Container(
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.white,
-                        border: Border.all(
-                          color: color, // border color
-                          // border thickness
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 6,
-                            offset: Offset(0, 4),
+                    SizedBox(height: screenHeight * 0.04),
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          _buildTextField(
+                            "Email",
+                            controller.emailController,
+                            Icons.email,
+                            isEmail: true,
+                          ),
+                          _buildTextField(
+                            "Password",
+                            controller.passwordController,
+                            Icons.lock,
+                            isPassword: true,
                           ),
                         ],
                       ),
-                      child: Image.asset("assets/images/fingerprint.png"),
                     ),
-                  ),
-                ],
+                
+                    Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromRGBO(129, 129, 129, 1),
+                      ),
+                    ),
+                    SizedBox(height: screenHeight * 0.08),
+                   ],
+                ),
               ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account?",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Color.fromRGBO(129, 129, 129, 1),
+                Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            if (_formKey.currentState?.validate() ?? false) {
+                              Navigator.pushNamed(context, AppRoutes.dashboard);
+                            }
+                          },
+                          child: Container(
+                            width:
+                                screenWidth *
+                                0.65, // makes container fill parent width
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 16,
+                            ), // vertical padding for height
+                            decoration: BoxDecoration(
+                              color: color,
+                              borderRadius: BorderRadius.circular(
+                                10,
+                              ), // rounded edges
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 6,
+                                  offset: Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              "Sign In",
+                              style: TextStyle(
+                                color: Colors
+                                    .white, // assuming you want white text on colored bg
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: screenWidth * 0.04),
+                        GestureDetector(
+                          onTap:(){authenticate(context);},
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.white,
+                              border: Border.all(
+                                color: color, // border color
+                                // border thickness
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black12,
+                                  blurRadius: 6,
+                                  offset: Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: Image.asset("assets/images/fingerprint.png"),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-
-                    child: Text(
-                      "Create Account",
-                      style: TextStyle(fontSize: 14, color: color),
+                
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don't have an account?",
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Color.fromRGBO(129, 129, 129, 1),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {Navigator.pushNamed(context, AppRoutes.signup);},
+                
+                          child: Text(
+                            "Create Account",
+                            style: TextStyle(fontSize: 14, color: color),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              ),
+                 
             ],
           ),
         ),

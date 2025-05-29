@@ -51,7 +51,8 @@ class _TagsFieldWithPopupState extends State<TagsFieldWithPopup> {
     await showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Add a Tag'),
+        backgroundColor: Colors.white,
+        title:  Text('Add a Tag', style: TextStyle(fontFamily: font, fontSize:12)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -86,7 +87,7 @@ class _TagsFieldWithPopupState extends State<TagsFieldWithPopup> {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(ctx).pop(),
-            child: const Text('CANCEL'),
+            child:  Text('CANCEL', style: TextStyle(fontFamily: font,color:color, fontSize:12)),
           ),
           ElevatedButton(
             onPressed: () {
@@ -97,7 +98,7 @@ class _TagsFieldWithPopupState extends State<TagsFieldWithPopup> {
                 widget.onTagAdded(tag.label, tag.color);
               }
             },
-            child: const Text('OK'),
+            child:  Text('OK', style: TextStyle(fontFamily: font, fontSize:12, color:color)),
           ),
         ],
       ),

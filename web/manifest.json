@@ -1,6 +1,6 @@
 {
-    "name": "do_it",
-    "short_name": "do_it",
+    "name": "zenkonect",
+    "short_name": "zenkonect",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
