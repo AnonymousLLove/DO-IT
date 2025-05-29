@@ -83,7 +83,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         "Name",
                         controller.nameController,
                         Icons.email,
-                        isEmail: true,
+                        isEmail: false,
                       ),
 
                       _buildTextField(

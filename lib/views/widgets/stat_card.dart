@@ -7,7 +7,7 @@ class StatCard extends StatelessWidget {
   final int count;
   final Color color;
 
-  const StatCard({
+  const StatCard({super.key, 
     required this.icon,
     required this.title,
     required this.count,

@@ -4,7 +4,7 @@ class SubmitButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  const SubmitButton({required this.text, required this.onPressed});
+  const SubmitButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext c) {
@@ -13,10 +13,10 @@ class SubmitButton extends StatelessWidget {
       height: 48,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text(text, style: const TextStyle(fontSize: 16)),
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
+        child: Text(text, style: const TextStyle(fontSize: 16)),
       ),
     );
   }

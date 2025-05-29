@@ -1,4 +1,5 @@
 import 'package:do_it/config/constants.dart';
+import 'package:do_it/controllers/biometrics.dart';
 import 'package:do_it/controllers/create_account_controller.dart';
 import 'package:do_it/routes/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -179,25 +180,28 @@ class _SignInViewState extends State<SignInView> {
                     ),
                   ),
                   SizedBox(width: screenWidth * 0.04),
-                  Container(
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.white,
-                      border: Border.all(
-                        color: color, // border color
-                        // border thickness
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 6,
-                          offset: Offset(0, 4),
+                  GestureDetector(
+                    onTap:(){authenticate(context);},
+                    child: Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: color, // border color
+                          // border thickness
                         ),
-                      ],
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 6,
+                            offset: Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Image.asset("assets/images/fingerprint.png"),
                     ),
-                    child: Image.asset("assets/images/fingerprint.png"),
                   ),
                 ],
               ),

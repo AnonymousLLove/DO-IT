@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class ProjectsView extends StatelessWidget {
   final ProjectsController ctrl = ProjectsController();
 
+  ProjectsView({super.key});
+
   @override
   Widget build(BuildContext context) {
     final projects = ctrl.getProjects();

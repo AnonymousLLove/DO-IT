@@ -5,7 +5,7 @@ import '../../models/project_model.dart';
 
 class ProjectCard extends StatelessWidget {
   final Project project;
-  const ProjectCard({required this.project});
+  const ProjectCard({super.key, required this.project});
 
   @override
   Widget build(BuildContext context) {

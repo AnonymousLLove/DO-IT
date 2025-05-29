@@ -1,6 +1,7 @@
 import 'package:do_it/views/screens/add_task_view.dart';
 import 'package:do_it/views/screens/create_account.dart';
 import 'package:do_it/views/screens/create_project_view.dart';
+import 'package:do_it/views/screens/create_task_view.dart';
 import 'package:do_it/views/screens/dashboard_view.dart';
 import 'package:do_it/views/screens/projects_view.dart';
 import 'package:do_it/views/screens/sign_in.dart';
@@ -15,6 +16,7 @@ class AppRoutes {
   static const String createProject = '/createProject';
   static const String projectView = '/projectView';
   static const String taskView = '/taskView';
+   static const String createTask = '/createTask';
 
   static Map<String, WidgetBuilder> routes = {
     welcome: (context) => const WelcomeScreen(),
@@ -24,5 +26,6 @@ class AppRoutes {
     createProject: (context) => CreateProjectView(),
     projectView: (context) => ProjectsView(),
     taskView: (context) => AddTaskView(),
+      createTask: (context) => CreateTaskView(),
   };
 }

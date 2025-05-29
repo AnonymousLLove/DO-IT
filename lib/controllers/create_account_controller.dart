@@ -1,3 +1,5 @@
+import 'package:do_it/routes/app_routes.dart';
+
 import '../models/user_model.dart';
 import 'package:flutter/material.dart';
 
@@ -22,8 +24,6 @@ class CreateAccountController {
   }
 
   void createAccount(BuildContext context) {
-    // TODO: Implement your backend call here
-    print("Creating account for: ${user.email}");
-    // You could use a snackbar here to show success/failure
+   Navigator.pushNamed(context, AppRoutes.dashboard);
   }
 }

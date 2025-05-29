@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'DO-IT',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Poppins'),
-      initialRoute: AppRoutes.dashboard,
+    
+      initialRoute: AppRoutes.welcome,
       routes: AppRoutes.routes,
     );
   }

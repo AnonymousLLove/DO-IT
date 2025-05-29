@@ -2,6 +2,7 @@ import 'package:do_it/config/constants.dart';
 
 import 'package:do_it/controllers/dashboard_controller.dart';
 import 'package:do_it/routes/app_routes.dart';
+import 'package:do_it/views/widgets/create_project_task_popup.dart';
 
 import 'package:do_it/views/widgets/dashboard_botttom_nav.dart';
 import 'package:do_it/views/widgets/stat_card.dart';
@@ -11,6 +12,8 @@ import 'package:flutter/material.dart';
 
 class DashboardView extends StatelessWidget {
   final DashboardController controller = DashboardController();
+
+  DashboardView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -193,7 +196,8 @@ class DashboardView extends StatelessWidget {
         child: IconButton(
           icon: const Icon(Icons.add, color: Colors.white, size: 40),
           onPressed: () {
-            Navigator.pushNamed(context, AppRoutes.createProject);
+CreateProjectTaskPopup.show(context);
+
           },
         ),
       ),

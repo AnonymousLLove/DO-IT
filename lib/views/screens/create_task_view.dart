@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:do_it/config/constants.dart';
 import 'package:do_it/controllers/create_project_controller.dart';
@@ -11,29 +10,19 @@ import 'package:do_it/views/widgets/member_picker_field.dart';
 
 import 'package:do_it/views/widgets/text_input_field.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
-class CreateProjectView extends StatefulWidget {
-  const CreateProjectView({super.key});
+
+class CreateTaskView extends StatefulWidget {
+  const CreateTaskView({super.key});
 
   @override
-  _CreateProjectViewState createState() => _CreateProjectViewState();
+  _CreateTaskViewState createState() => _CreateTaskViewState();
 }
 
-class _CreateProjectViewState extends State<CreateProjectView> {
+class _CreateTaskViewState extends State<CreateTaskView> {
   final _ctrl = CreateProjectController();
 
-  File? _image;
-
-  Future<void> _pickImage() async {
-    final picker = ImagePicker();
-    final picked = await picker.pickImage(source: ImageSource.gallery);
-    if (picked != null) {
-      setState(() {
-        _image = File(picked.path);
-      });
-    }
-  }
+ 
   @override
   Widget build(BuildContext context) {
        final screenHeight = MediaQuery.of(context).size.height;
@@ -79,7 +68,7 @@ class _CreateProjectViewState extends State<CreateProjectView> {
            ),
               SizedBox(height: screenHeight * 0.03),
               Text(
-                "Create Project",
+                "Add Task",
                 style: TextStyle(
                   fontFamily: font,
                   color: Colors
@@ -89,44 +78,24 @@ class _CreateProjectViewState extends State<CreateProjectView> {
                 ),
               ),
                 SizedBox(height: screenHeight * 0.05),
-           Row(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-    GestureDetector(
-      onTap: _pickImage,
-      child: CircleAvatar(
-        radius: 30,
-        backgroundColor: Colors.grey[300],
-        backgroundImage: _image != null ? FileImage(_image!) : null,
-        child: _image == null
-            ? const Icon(Icons.camera_alt, color: Colors.white)
-            : null,
-      ),
-    ),
-    const SizedBox(width: 20),
-
-    Expanded( 
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Project Name',
-            style: TextStyle(
-              fontFamily: font,
-              color: Color.fromRGBO(177, 176, 176, 1),
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          TextInputField(
-            label: 'Project Name',
-            onChanged: (v) => _ctrl.setName(v),
-          ),
-        ],
-      ),
-    ),
-  ],
-),
+           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Task Name',
+                style: TextStyle(
+                  fontFamily: font,
+                  color: Color.fromRGBO(177, 176, 176, 1),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              TextInputField(
+                label: 'Project Name',
+                onChanged: (v) => _ctrl.setName(v),
+              ),
+            ],
+                 ),
 
              
           SizedBox(height: screenHeight * 0.09),
@@ -239,7 +208,7 @@ TagsFieldWithPopup(
            DescriptionTextField(),
               const SizedBox(height: 24),
                CustomButton(
-                  text: 'Create Project',
+                  text: 'Add Task',
                   onPressed: () {
                                        ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Project created!')),
