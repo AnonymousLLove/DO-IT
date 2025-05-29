@@ -9,20 +9,19 @@ class DescriptionTextField extends StatelessWidget {
     return TextFormField(
       maxLines: 4,
       style: TextStyle(
-        fontFamily: font,
-        color: Color.fromRGBO(100, 100, 100, 1),
-        fontSize: 12,
-        fontWeight: FontWeight.w500
-      ),
-    
+          fontFamily: font,
+          color: const Color.fromRGBO(100, 100, 100, 1),
+          fontSize: 12,
+          fontWeight: FontWeight.w500),
       decoration: InputDecoration(
-       
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color.fromRGBO(177, 176, 176, 1), width: 1),
+          borderSide: const BorderSide(
+              color: Color.fromRGBO(177, 176, 176, 1), width: 1),
           borderRadius: BorderRadius.circular(4),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color:  Color.fromRGBO(177, 176, 176, 1),  width: 1),
+          borderSide: const BorderSide(
+              color: Color.fromRGBO(177, 176, 176, 1), width: 1),
           borderRadius: BorderRadius.circular(4),
         ),
       ),

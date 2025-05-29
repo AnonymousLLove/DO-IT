@@ -35,14 +35,14 @@ class ProjectCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 12,
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(0, 154, 73, 1),
+                    color: const Color.fromRGBO(0, 154, 73, 1),
                     borderRadius: BorderRadius.circular(2),
                   ),
                   child: Text(
@@ -77,7 +77,7 @@ class ProjectCard extends StatelessWidget {
                     Text(
                       df.format(project.startDate!),
                       style: TextStyle(
-                        color: Color.fromRGBO(78, 78, 78, 1),
+                        color: const Color.fromRGBO(78, 78, 78, 1),
                         fontFamily: font,
                         fontWeight: FontWeight.w500,
                         fontSize: 10,
@@ -101,7 +101,7 @@ class ProjectCard extends StatelessWidget {
                     Text(
                       df.format(project.endDate!),
                       style: TextStyle(
-                        color: Color.fromRGBO(78, 78, 78, 1),
+                        color: const Color.fromRGBO(78, 78, 78, 1),
                         fontFamily: font,
                         fontWeight: FontWeight.w500,
                         fontSize: 10,
@@ -109,9 +109,10 @@ class ProjectCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(3),
                     color: Colors.white,

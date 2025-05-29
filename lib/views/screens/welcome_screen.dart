@@ -32,7 +32,7 @@ class WelcomeScreen extends StatelessWidget {
                           .contain, // Adjusts the image to fit inside the container
                     ),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Text.rich(
                     TextSpan(
                       children: [
@@ -61,7 +61,6 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
               Row(
                 mainAxisSize: MainAxisSize.min, // Ensure Row wraps its content
                 children: [
@@ -73,7 +72,7 @@ class WelcomeScreen extends StatelessWidget {
                     child: Container(
                       width: 50,
                       height: 50,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                         boxShadow: [
@@ -94,11 +93,10 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   Container(
                     width: 50,
                     height: 50,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
                       boxShadow: [
@@ -120,7 +118,6 @@ class WelcomeScreen extends StatelessWidget {
                             width: 24,
                             height: 24,
                           ),
-
                           Image.asset(
                             'assets/images/yellow.png',
                             width: 10,
@@ -130,7 +127,6 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   Padding(
                     padding: EdgeInsets.only(
                       top: screenHeight * 0.15,
@@ -139,7 +135,7 @@ class WelcomeScreen extends StatelessWidget {
                     child: Container(
                       width: 50,
                       height: 50,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                         boxShadow: [
@@ -162,7 +158,6 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
               SizedBox(
                 child: Image.asset(
                   'assets/images/write.png',
@@ -196,7 +191,6 @@ class WelcomeScreen extends StatelessWidget {
                 text: 'Create account',
                 onPressed: controller.navigateToSignUp,
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

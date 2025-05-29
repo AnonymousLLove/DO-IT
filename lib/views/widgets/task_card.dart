@@ -16,7 +16,6 @@ class TaskCard extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -26,7 +25,7 @@ class TaskCard extends StatelessWidget {
                 Text(
                   task.title,
                   style: TextStyle(
-                    color: Color.fromRGBO(55, 55, 55, 1),
+                    color: const Color.fromRGBO(55, 55, 55, 1),
                     fontSize: 14,
                     fontFamily: font,
                     fontWeight: FontWeight.w600,
@@ -63,13 +62,12 @@ class TaskCard extends StatelessWidget {
                     Text(
                       'Team members',
                       style: TextStyle(
-                        color: Color.fromRGBO(78, 78, 78, 1),
+                        color: const Color.fromRGBO(78, 78, 78, 1),
                         fontSize: 10,
                         fontFamily: font,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-
                     const SizedBox(height: 10),
                     Row(
                       children: [
@@ -112,7 +110,7 @@ class TaskCard extends StatelessWidget {
                             Text(
                               task.startDate,
                               style: TextStyle(
-                                color: Color.fromRGBO(78, 78, 78, 1),
+                                color: const Color.fromRGBO(78, 78, 78, 1),
                                 fontWeight: FontWeight.w600,
                                 fontSize: 10,
                                 fontFamily: font,
@@ -136,7 +134,7 @@ class TaskCard extends StatelessWidget {
                             Text(
                               task.endDate,
                               style: TextStyle(
-                                color: Color.fromRGBO(78, 78, 78, 1),
+                                color: const Color.fromRGBO(78, 78, 78, 1),
                                 fontWeight: FontWeight.w600,
                                 fontSize: 10,
                                 fontFamily: font,

@@ -14,13 +14,12 @@ class AddTaskView extends StatelessWidget {
     final tasks = controller.getTasks();
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Color.fromRGBO(248, 248, 248, 1),
+      backgroundColor: const Color.fromRGBO(248, 248, 248, 1),
       body: SafeArea(
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
-
               child: Row(
                 children: [
                   CircleAvatar(
@@ -61,7 +60,7 @@ class AddTaskView extends StatelessWidget {
                 itemCount: tasks.length,
                 itemBuilder: (context, index) => TaskCard(
                   task: tasks[index],
-                  bp: Color.fromRGBO(88, 2, 140, 1),
+                  bp: const Color.fromRGBO(88, 2, 140, 1),
                 ),
               ),
             ),

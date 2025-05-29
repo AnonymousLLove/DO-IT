@@ -16,7 +16,7 @@ class ProjectsView extends StatelessWidget {
 
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Color.fromRGBO(248, 248, 248, 1),
+      backgroundColor: const Color.fromRGBO(248, 248, 248, 1),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
@@ -33,7 +33,7 @@ class ProjectsView extends StatelessWidget {
                     child: Container(
                       width: 40,
                       height: 40,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black12,
@@ -59,9 +59,12 @@ class ProjectsView extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: (){ Navigator.pushNamed(context, AppRoutes.createProject);},
+                    onTap: () {
+                      Navigator.pushNamed(context, AppRoutes.createProject);
+                    },
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 18, vertical: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         color: Colors.white,

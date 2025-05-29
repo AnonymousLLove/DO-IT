@@ -40,7 +40,7 @@ class _SignInViewState extends State<SignInView> {
                     Container(
                       width: 40,
                       height: 40,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                         boxShadow: [
@@ -54,14 +54,12 @@ class _SignInViewState extends State<SignInView> {
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: IconButton(
-                          icon: Icon(Icons.arrow_back_ios, size: 20),
+                          icon: const Icon(Icons.arrow_back_ios, size: 20),
                           onPressed: () => Navigator.pop(context),
                         ),
                       ),
                     ),
-                
                     SizedBox(height: screenHeight * 0.1),
-                
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -74,7 +72,7 @@ class _SignInViewState extends State<SignInView> {
                                 .contain, // Adjusts the image to fit inside the container
                           ),
                         ),
-                        SizedBox(width: 20),
+                        const SizedBox(width: 20),
                         Text.rich(
                           TextSpan(
                             children: [
@@ -134,8 +132,7 @@ class _SignInViewState extends State<SignInView> {
                         ],
                       ),
                     ),
-                
-                    Text(
+                    const Text(
                       "Forgot Password?",
                       style: TextStyle(
                         fontSize: 12,
@@ -143,97 +140,97 @@ class _SignInViewState extends State<SignInView> {
                       ),
                     ),
                     SizedBox(height: screenHeight * 0.08),
-                   ],
+                  ],
                 ),
               ),
-                Row(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            if (_formKey.currentState?.validate() ?? false) {
-                              Navigator.pushNamed(context, AppRoutes.dashboard);
-                            }
-                          },
-                          child: Container(
-                            width:
-                                screenWidth *
-                                0.65, // makes container fill parent width
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 16,
-                            ), // vertical padding for height
-                            decoration: BoxDecoration(
-                              color: color,
-                              borderRadius: BorderRadius.circular(
-                                10,
-                              ), // rounded edges
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 6,
-                                  offset: Offset(0, 4),
-                                ),
-                              ],
-                            ),
-                            alignment: Alignment.center,
-                            child: Text(
-                              "Sign In",
-                              style: TextStyle(
-                                color: Colors
-                                    .white, // assuming you want white text on colored bg
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      if (_formKey.currentState?.validate() ?? false) {
+                        Navigator.pushNamed(context, AppRoutes.dashboard);
+                      }
+                    },
+                    child: Container(
+                      width: screenWidth *
+                          0.65, // makes container fill parent width
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                      ), // vertical padding for height
+                      decoration: BoxDecoration(
+                        color: color,
+                        borderRadius: BorderRadius.circular(
+                          10,
+                        ), // rounded edges
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 6,
+                            offset: Offset(0, 4),
                           ),
+                        ],
+                      ),
+                      alignment: Alignment.center,
+                      child: const Text(
+                        "Sign In",
+                        style: TextStyle(
+                          color: Colors
+                              .white, // assuming you want white text on colored bg
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(width: screenWidth * 0.04),
-                        GestureDetector(
-                          onTap:(){authenticate(context);},
-                          child: Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: Colors.white,
-                              border: Border.all(
-                                color: color, // border color
-                                // border thickness
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black12,
-                                  blurRadius: 6,
-                                  offset: Offset(0, 4),
-                                ),
-                              ],
-                            ),
-                            child: Image.asset("assets/images/fingerprint.png"),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don't have an account?",
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Color.fromRGBO(129, 129, 129, 1),
-                          ),
+                  ),
+                  SizedBox(width: screenWidth * 0.04),
+                  GestureDetector(
+                    onTap: () {
+                      authenticate(context);
+                    },
+                    child: Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: color, // border color
+                          // border thickness
                         ),
-                        TextButton(
-                          onPressed: () {Navigator.pushNamed(context, AppRoutes.signup);},
-                
-                          child: Text(
-                            "Create Account",
-                            style: TextStyle(fontSize: 14, color: color),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 6,
+                            offset: Offset(0, 4),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                      child: Image.asset("assets/images/fingerprint.png"),
                     ),
-                 
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Don't have an account?",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Color.fromRGBO(129, 129, 129, 1),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, AppRoutes.signup);
+                    },
+                    child: const Text(
+                      "Create Account",
+                      style: TextStyle(fontSize: 14, color: color),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -255,10 +252,11 @@ class _SignInViewState extends State<SignInView> {
       child: Theme(
         data: Theme.of(context).copyWith(
           inputDecorationTheme: InputDecorationTheme(
-            floatingLabelStyle: TextStyle(color: color), // Focused label color
+            floatingLabelStyle:
+                const TextStyle(color: color), // Focused label color
             labelStyle: TextStyle(
               fontFamily: font,
-              color: Color.fromRGBO(100, 100, 100, 1),
+              color: const Color.fromRGBO(100, 100, 100, 1),
             ),
           ),
         ),
@@ -298,20 +296,18 @@ class _SignInViewState extends State<SignInView> {
 
             return null;
           },
-
-          style: TextStyle(
+          style: const TextStyle(
             color: Color.fromRGBO(100, 100, 100, 1),
             fontSize: 16,
           ),
           obscureText: isPassword && !showPassword,
           decoration: InputDecoration(
             labelText: label,
-
             suffixIcon: isPassword
                 ? IconButton(
                     icon: Icon(
                       showPassword ? Icons.visibility : Icons.visibility_off,
-                      color: Color.fromRGBO(100, 100, 100, 1),
+                      color: const Color.fromRGBO(100, 100, 100, 1),
                     ),
                     onPressed: () {
                       setState(() {
@@ -328,15 +324,17 @@ class _SignInViewState extends State<SignInView> {
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Color.fromRGBO(100, 100, 100, 1)),
+              borderSide:
+                  const BorderSide(color: Color.fromRGBO(100, 100, 100, 1)),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Color.fromRGBO(100, 100, 100, 1)),
+              borderSide:
+                  const BorderSide(color: Color.fromRGBO(100, 100, 100, 1)),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: color),
+              borderSide: const BorderSide(color: color),
             ),
           ),
         ),

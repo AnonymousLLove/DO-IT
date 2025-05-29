@@ -16,16 +16,16 @@ class AppRoutes {
   static const String createProject = '/createProject';
   static const String projectView = '/projectView';
   static const String taskView = '/taskView';
-   static const String createTask = '/createTask';
+  static const String createTask = '/createTask';
 
   static Map<String, WidgetBuilder> routes = {
     welcome: (context) => const WelcomeScreen(),
     signup: (context) => const CreateAccountView(),
     signin: (context) => const SignInView(),
     dashboard: (context) => DashboardView(),
-    createProject: (context) => CreateProjectView(),
+    createProject: (context) => const CreateProjectView(),
     projectView: (context) => ProjectsView(),
     taskView: (context) => AddTaskView(),
-      createTask: (context) => CreateTaskView(),
+    createTask: (context) => const CreateTaskView(),
   };
 }

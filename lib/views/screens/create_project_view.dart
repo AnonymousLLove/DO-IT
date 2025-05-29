@@ -34,225 +34,215 @@ class _CreateProjectViewState extends State<CreateProjectView> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
-       final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-   backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-    padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
-         child: Column(
+          padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-           GestureDetector(
-            
-onTap: () {
-  FocusScope.of(context).unfocus(); // hide keyboard
-  Future.delayed(const Duration(milliseconds: 100), () {
-    if (mounted) Navigator.pop(context); // wait for keyboard to close
-  });
-
-
-             },
-             child: Container(
-               width: 40,
-               height: 40,
-               decoration: BoxDecoration(
-                 boxShadow: [
-                   BoxShadow(
-                     color: Colors.black12,
-                     blurRadius: 6,
-                     offset: Offset(0, 4),
-                   ),
-                 ],
-                 shape: BoxShape.circle,
-                 color: Color.fromRGBO(248, 248, 248, 1),
-               ),
-               child: const Center(
-                 child: Icon(
-                   Icons.arrow_back_ios,
-                   size: 20,
-                   color: Color.fromRGBO(
-                     18,
-                     24,
-                     38,
-                     1,
-                   ), // Change icon color as needed
-                 ),
-               ),
-             ),
-           ),
+              GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).unfocus(); // hide keyboard
+                  Future.delayed(const Duration(milliseconds: 100), () {
+                    if (mounted)
+                      Navigator.pop(context); // wait for keyboard to close
+                  });
+                },
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: const BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 6,
+                        offset: Offset(0, 4),
+                      ),
+                    ],
+                    shape: BoxShape.circle,
+                    color: Color.fromRGBO(248, 248, 248, 1),
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      size: 20,
+                      color: Color.fromRGBO(
+                        18,
+                        24,
+                        38,
+                        1,
+                      ), // Change icon color as needed
+                    ),
+                  ),
+                ),
+              ),
               SizedBox(height: screenHeight * 0.03),
               Text(
                 "Create Project",
                 style: TextStyle(
                   fontFamily: font,
-                  color: Colors
-                      .black, 
+                  color: Colors.black,
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-                SizedBox(height: screenHeight * 0.02),
-           Row(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-    GestureDetector(
-      onTap: _pickImage,
-      child: CircleAvatar(
-        radius: 30,
-        backgroundColor: Colors.grey[300],
-        backgroundImage: _image != null ? FileImage(_image!) : null,
-        child: _image == null
-            ? const Icon(Icons.camera_alt, color: Colors.white)
-            : null,
-      ),
-    ),
-    const SizedBox(width: 20),
-
-    Expanded( 
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Project Name',
-            style: TextStyle(
-              fontFamily: font,
-              color: Color.fromRGBO(177, 176, 176, 1),
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          TextInputField(
-            label: 'Project Name',
-            onChanged: (v) => _ctrl.setName(v),
-          ),
-        ],
-      ),
-    ),
-  ],
-),
-
-             
-          SizedBox(height: screenHeight * 0.03),
-
-       Row(
-  children: [
-    Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Created (from)',
-            style: TextStyle(
-              fontFamily: font,
-              color: Color.fromRGBO(177, 176, 176, 1),
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          DateField(
-            onDateSelected: (d) => _ctrl.setStartDate(d),
-          ),
-        ],
-      ),
-    ),
-    const SizedBox(width: 16), 
-    Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'End (to)',
-            style: TextStyle(
-              fontFamily: font,
-              color: Color.fromRGBO(177, 176, 176, 1),
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          DateField(
-                      
-                      onDateSelected: (d) => _ctrl.setEndDate(d),
+              SizedBox(height: screenHeight * 0.02),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: _pickImage,
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundColor: Colors.grey[300],
+                      backgroundImage:
+                          _image != null ? FileImage(_image!) : null,
+                      child: _image == null
+                          ? const Icon(Icons.camera_alt, color: Colors.white)
+                          : null,
                     ),
-        ],
-      ),
-    ),
-  ],
-)
- ,
-            
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Project Name',
+                          style: TextStyle(
+                            fontFamily: font,
+                            color: const Color.fromRGBO(177, 176, 176, 1),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        TextInputField(
+                          label: 'Project Name',
+                          onChanged: (v) => _ctrl.setName(v),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: screenHeight * 0.03),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Created (from)',
+                          style: TextStyle(
+                            fontFamily: font,
+                            color: const Color.fromRGBO(177, 176, 176, 1),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        DateField(
+                          onDateSelected: (d) => _ctrl.setStartDate(d),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'End (to)',
+                          style: TextStyle(
+                            fontFamily: font,
+                            color: const Color.fromRGBO(177, 176, 176, 1),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        DateField(
+                          onDateSelected: (d) => _ctrl.setEndDate(d),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(height: 10),
-            InputDecorator(
-        
-       decoration: const InputDecoration(
-    enabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Color.fromRGBO(177, 176, 176, 1)), 
-    ),
-    focusedBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
-    ),
-
-    errorBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
-    ),
-  ),child:
-
-              MemberPickerWithPreview(
-  label: 'Add Staffs:',
-  onMemberAdded: (id) {
-    _ctrl.addMember(id);
-  },
-),),
-
-
-
+              InputDecorator(
+                decoration: const InputDecoration(
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
+                  ),
+                ),
+                child: MemberPickerWithPreview(
+                  label: 'Add Staffs:',
+                  onMemberAdded: (id) {
+                    _ctrl.addMember(id);
+                  },
+                ),
+              ),
               const SizedBox(height: 16),
-                 InputDecorator(
-        
-       decoration: const InputDecoration(
-    enabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Color.fromRGBO(177, 176, 176, 1)), 
-    ),
-    focusedBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
-    ),
-
-    errorBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
-    ),
-  ),child:
-TagsFieldWithPopup(
-  label: 'Tags:',
-  onTagAdded: (text, color) {
-    // e.g. store in your controller:
-    _ctrl.addTag(text);  // you also have `color` if you need it
-  },
-),),
-
+              InputDecorator(
+                decoration: const InputDecoration(
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color.fromRGBO(177, 176, 176, 1)),
+                  ),
+                ),
+                child: TagsFieldWithPopup(
+                  label: 'Tags:',
+                  onTagAdded: (text, color) {
+                    // e.g. store in your controller:
+                    _ctrl.addTag(text); // you also have `color` if you need it
+                  },
+                ),
+              ),
               const SizedBox(height: 16),
               Text(
                 "Description:",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontFamily: font,
-                  color: Color.fromRGBO(177, 176, 176, 1),
+                  color: const Color.fromRGBO(177, 176, 176, 1),
                   fontSize: 12,
                 ),
               ),
-                  const SizedBox(height: 10),
-           DescriptionTextField(),
+              const SizedBox(height: 10),
+              const DescriptionTextField(),
               const SizedBox(height: 24),
-               CustomButton(
-                  text: 'Create Project',
-                  onPressed: () {
-                                       ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Project created!')),
-                    );
-                  },
-                ),
-             
+              CustomButton(
+                text: 'Create Project',
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Project created!')),
+                  );
+                },
+              ),
             ],
           ),
         ),

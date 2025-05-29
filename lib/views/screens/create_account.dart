@@ -41,7 +41,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                       Container(
                         width: 50,
                         height: 50,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white,
                           boxShadow: [
@@ -53,20 +53,22 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                           ],
                         ),
                         child: IconButton(
-                          icon: Icon(Icons.arrow_back_ios),
+                          icon: const Icon(Icons.arrow_back_ios),
                           onPressed: () => Navigator.pop(context),
                         ),
                       ),
                       SizedBox(height: screenHeight * 0.02),
-                      Text(
+                      const Text(
                         'Create\nAccount',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10),
-                      Text.rich(
+                      const SizedBox(height: 10),
+                      const Text.rich(
                         TextSpan(
                           text: 'Please fill the details below to\ncreate a ',
-                          style: TextStyle(color: Colors.black), // Default text style
+                          style: TextStyle(
+                              color: Colors.black), // Default text style
                           children: [
                             TextSpan(
                               text: 'DO-IT',
@@ -78,7 +80,7 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Form(
                         key: _formKey,
                         child: Column(
@@ -89,7 +91,6 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                               Icons.email,
                               isEmail: false,
                             ),
-                                
                             _buildTextField(
                               "Email",
                               controller.emailController,
@@ -97,16 +98,18 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                               isEmail: true,
                             ),
                             Padding(
-                              padding: EdgeInsets.only(bottom: screenHeight * 0.015),
+                              padding:
+                                  EdgeInsets.only(bottom: screenHeight * 0.015),
                               child: Theme(
                                 data: Theme.of(context).copyWith(
                                   inputDecorationTheme: InputDecorationTheme(
-                                    floatingLabelStyle: TextStyle(
+                                    floatingLabelStyle: const TextStyle(
                                       color: color,
                                     ), // Focused label color
                                     labelStyle: TextStyle(
                                       fontFamily: font,
-                                      color: Color.fromRGBO(100, 100, 100, 1),
+                                      color: const Color.fromRGBO(
+                                          100, 100, 100, 1),
                                     ),
                                   ),
                                 ),
@@ -120,27 +123,25 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                                     ),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8),
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Color.fromRGBO(100, 100, 100, 1),
                                       ),
                                     ),
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8),
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Color.fromRGBO(100, 100, 100, 1),
                                       ),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8),
-                                      borderSide: BorderSide(color: color),
+                                      borderSide:
+                                          const BorderSide(color: color),
                                     ),
-                                
                                     labelText: "Mobile Number",
                                   ),
-                                
                                   style: TextStyle(
-                                    color:
-                                        Theme.of(context).brightness ==
+                                    color: Theme.of(context).brightness ==
                                             Brightness.dark
                                         ? Colors.white
                                         : Colors.black,
@@ -162,7 +163,6 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                                 ),
                               ),
                             ),
-                                
                             _buildTextField(
                               "Password",
                               controller.passwordController,
@@ -173,35 +173,32 @@ class _CreateAccountViewState extends State<CreateAccountView> {
                         ),
                       ),
                       SizedBox(height: screenHeight * 0.06),
-
                     ],
                   ),
                 ),
               ),
-                                    CustomButton(
-                        text: 'Create account',
-                        onPressed: () {
-                          if (_formKey.currentState?.validate() ?? false) {
-                            controller.createAccount(context);
-                          }
-                        },
-                      ),
-                                
-                      Center(
-                        child: TextButton(
-                          onPressed: () {},
-                                
-                          child: Text(
-                            "Privacy policy",
-                            style: TextStyle(
-                              fontSize: 12,
-                              decoration: TextDecoration.underline,
-                              decorationColor: Color.fromRGBO(196, 196, 196, 1),
-                              color: Color.fromRGBO(196, 196, 196, 1),
-                            ),
-                          ),
-                        ),
-                      ),
+              CustomButton(
+                text: 'Create account',
+                onPressed: () {
+                  if (_formKey.currentState?.validate() ?? false) {
+                    controller.createAccount(context);
+                  }
+                },
+              ),
+              Center(
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Privacy policy",
+                    style: TextStyle(
+                      fontSize: 12,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Color.fromRGBO(196, 196, 196, 1),
+                      color: Color.fromRGBO(196, 196, 196, 1),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -223,10 +220,11 @@ class _CreateAccountViewState extends State<CreateAccountView> {
       child: Theme(
         data: Theme.of(context).copyWith(
           inputDecorationTheme: InputDecorationTheme(
-            floatingLabelStyle: TextStyle(color: color), // Focused label color
+            floatingLabelStyle:
+                const TextStyle(color: color), // Focused label color
             labelStyle: TextStyle(
               fontFamily: font,
-              color: Color.fromRGBO(100, 100, 100, 1),
+              color: const Color.fromRGBO(100, 100, 100, 1),
             ),
           ),
         ),
@@ -266,20 +264,18 @@ class _CreateAccountViewState extends State<CreateAccountView> {
 
             return null;
           },
-
-          style: TextStyle(
+          style: const TextStyle(
             color: Color.fromRGBO(100, 100, 100, 1),
             fontSize: 16,
           ),
           obscureText: isPassword && !showPassword,
           decoration: InputDecoration(
             labelText: label,
-
             suffixIcon: isPassword
                 ? IconButton(
                     icon: Icon(
                       showPassword ? Icons.visibility : Icons.visibility_off,
-                      color: Color.fromRGBO(100, 100, 100, 1),
+                      color: const Color.fromRGBO(100, 100, 100, 1),
                     ),
                     onPressed: () {
                       setState(() {
@@ -296,15 +292,17 @@ class _CreateAccountViewState extends State<CreateAccountView> {
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Color.fromRGBO(100, 100, 100, 1)),
+              borderSide:
+                  const BorderSide(color: Color.fromRGBO(100, 100, 100, 1)),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: Color.fromRGBO(100, 100, 100, 1)),
+              borderSide:
+                  const BorderSide(color: Color.fromRGBO(100, 100, 100, 1)),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: color),
+              borderSide: const BorderSide(color: color),
             ),
           ),
         ),
